@@ -7,12 +7,14 @@ import jakarta.ws.rs.Produces
 import jakarta.ws.rs.core.MediaType
 import org.ptss.support.identityservice.dtos.LoginResponseDTO
 import org.ptss.support.identityservice.dtos.RefreshTokenRequestDTO
+import org.ptss.support.identityservice.services.IdentityRefreshTokenService
 
-class IdentityRefreshTokenResource(private val identityRefreshTokenResource: IdentityRefreshTokenResource) {
+@Path("/auth")
+class IdentityRefreshTokenResource(private val identityRefreshTokenService: IdentityRefreshTokenService) {
     @POST
     @Path("/refresh")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     fun refreshToken(request: RefreshTokenRequestDTO): LoginResponseDTO =
-        identityRefreshTokenResource.refreshToken(request)
+        identityRefreshTokenService.refreshToken(request)
 }

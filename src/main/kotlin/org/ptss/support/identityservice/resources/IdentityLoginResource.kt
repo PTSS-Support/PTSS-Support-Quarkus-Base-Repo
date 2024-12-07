@@ -12,11 +12,13 @@ import org.ptss.support.identityservice.dtos.PasswordLoginRequestDTO
 import org.ptss.support.identityservice.services.IdentityLoginService
 import java.time.Duration
 
-@Path("/auth/login")
+@Path("/auth")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 class IdentityLoginResource(private val identityLoginService: IdentityLoginService) {
+    
     @POST
+    @Path("/login")
     fun login(request: PasswordLoginRequestDTO): Response {
         val loginResponse = identityLoginService.login(request)
 

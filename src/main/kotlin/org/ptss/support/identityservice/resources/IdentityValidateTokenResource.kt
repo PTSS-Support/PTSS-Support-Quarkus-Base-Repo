@@ -9,6 +9,7 @@ import org.ptss.support.identityservice.dtos.TokenValidationResponseDTO
 import org.ptss.support.identityservice.dtos.ValidateTokenRequestDTO
 import org.ptss.support.identityservice.services.IdentityValidateTokenService
 
+@Path("/auth")
 class IdentityValidateTokenResource(private val identityValidateTokenService: IdentityValidateTokenService) {
     @POST
     @Path("/validate")
